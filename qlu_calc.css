@@ -45,7 +45,10 @@
     
 }
 
-
+.unofficial-text {
+  margin-top: -20px; /* Adjust this value as needed to close the gap */
+  font-size: 16px; /* Optional: adjust the font size if needed */
+}
 
 .q_page_header {
     padding: 1em 1em .5em 1em;
