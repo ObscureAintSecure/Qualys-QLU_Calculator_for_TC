@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Qualys TotalCloud QLU Calculator (Unofficial)</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
+    <link href='qlu_calc.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class='container px-4 text-center q_calculator'>
+
+      <div><h1 class='q_page_header'>Qualys TotalCloud QLU Calculator</h1>
+      (Unofficial)</div>
+	  
+      <!-- HEADER ROW -->
+      <div class='row gx-5 align-items-center'>
+        <div class='col col-1 q_col_1'>
+          <span class='q_col_head'>col 1</span>
+        </div>
+        <div class='col col-7'>
+          <br>
+        </div>
+        <div class='col col-2'>
+          <span class='q_col_head'>Resource Counts</span>
+        </div>
+        <div class='col col-2'>
+          <span class='q_col_head'>QLUs</span>
+        </div>
+      </div>
+
+      <!-- SECTION HEADER ROW: Cloud Security Posture Management Separator -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1 q_col_1'>
+          
+        </div>
+        <div class='col col-11 q_calc_section_head'>
+            Cloud Security Posture Management
+        </div>
+      </div>
+
+      <!-- Cloud Security Posture Management: Virtual Machines -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          Virtual Machines
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cspm_vm' name='cspm_vm' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cspm_vm' name='qlu_cspm_vm' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Security Posture Management: Serverless Functions -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          Serverless Functions
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cspm_func' name='cspm_func' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cspm_func' name='qlu_cspm_func' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Security Posture Management: SaaS User Accounts - O365 -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          SaaSDR - O365 User Accounts
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cspm_o365' name='cspm_o365' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cspm_o365' name='qlu_cspm_o365' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Security Posture Management: SaaS User Accounts - Salesforce -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          SaaSDR - Salesforce User Accounts
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cspm_salesforce' name='cspm_salesforce' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cspm_salesforce' name='qlu_cspm_salesforce' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Security Posture Management: SaaS User Accounts - Google Workspace -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          SaaSDR - Google Workspace User Accounts
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cspm_google_workspace' name='cspm_google_workspace' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cspm_google_workspace' name='qlu_cspm_google_workspace' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Security Posture Management: SaaS User Accounts - Zoom -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          SaaSDR - Zoom User Accounts
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cspm_zoom' name='cspm_zoom' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cspm_zoom' name='qlu_cspm_zoom' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Security Posture Management: SaaS User Accounts - Dropbox -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          SaaSDR - Dropbox User Accounts
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cspm_dropbox' name='cspm_dropbox' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cspm_dropbox' name='qlu_cspm_dropbox' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Security Posture Management: SaaS User Accounts - Slack -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          SaaSDR - Slack User Accounts
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cspm_slack' name='cspm_slack' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cspm_slack' name='qlu_cspm_slack' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- SECTION HEADER ROW: Cloud Workload Protection Separator -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1 q_col_1'>
+          
+        </div>
+        <div class='col col-11 q_calc_section_head'>
+            Cloud Workload Protection
+        </div>
+      </div>
+
+      <!-- Cloud Workload Protection: Virtual Machines with Cloud Agents -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1'>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          Virtual Machines with Cloud Agents
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cwp_vmdr' name='cwp_vmdr' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cwp_vmdr' name='qlu_cwp_vmdr' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Workload Protection: Virtual Machines with FlexScan -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1'>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          Virtual Machines with FlexScan
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cwp_flex' name='cwp_flex' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cwp_flex' name='qlu_cwp_flex' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- SECTION HEADER ROW: Cloud Detection and Response Separator -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1 q_col_1'>
+          
+        </div>
+        <div class='col col-11 q_calc_section_head'>
+            Cloud Detection and Response
+        </div>
+      </div>
+
+      <!-- Cloud Detection and Response: CDR Protected Virtual Machines -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1'>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          CDR Protected Virtual Machines
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cdr_vm' name='cdr_vm' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cdr_vm' name='qlu_cdr_vm' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Cloud Detection and Response: CDR Protected Serverless Functions -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1'>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          CDR Protected Serverless Functions
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cdr_func' name='cdr_func' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cdr_func' name='qlu_cdr_func' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- SECTION HEADER ROW: Container Security Separator -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1 q_col_1'>
+          
+        </div>
+        <div class='col col-11 q_calc_section_head'>
+            Container Security
+        </div>
+      </div>
+
+      <!-- Container Security: Virtual Machines with Containers, including CI/CD Build Nodes -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1'>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          Virtual Machines with Containers, including CI/CD Build Nodes
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cs_vm' name='cs_vm' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cs_vm' name='qlu_cs_vm' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Container Security: Container Images in Registries -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1'>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          Container Images in Registries
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cs_reg' name='cs_reg' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cs_reg' name='qlu_cs_reg' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- Container Security: Serverless Containers -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1' q_col_1'>
+          
+        </div>
+        <div class='col col-7 q_input_col'>
+          Serverless Containers
+        </div>
+        <div class='col col-2 q_input_col'>
+            <input id='cs_svrlss' name='cs_svrlss' class='q_input'>
+        </div>
+        <div class='col col-2'>
+            <input id='qlu_cs_svrlss' name='qlu_cs_svrlss' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+      <!-- SECTION HEADER ROW: QLU Totals Separator -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-1 q_col_1'>
+          
+        </div>
+        <div class='col col-11 q_calc_section_head'>
+            QLU Totals
+        </div>
+      </div>
+
+      <!-- QLU Summary Totals -->
+      <div class='row gx-5'>
+        <div class='col col-1' q_col_1'>
+          
+        </div>
+        <div class='col col-9'>
+            <br>
+        </div>
+        <div class='col col-2 q_curr_total'>
+          QLU Quantity<br>
+            <input id='qlu_total' name='qlu_total' class='q_calc' readonly tabindex='-1'>
+        </div>
+      </div>
+
+
+      <div class='row align-items-center gx-5'>
+        <div class='col col-12 q_input_col'  q_col_1'>
+          <br><br>
+          <table class='q_table'>
+            <thead>
+              <tr>
+                <th colspan=3 class='q_table_head'>
+                  QLU Calculations
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr class='q_table_section_head'>
+              <td class='q_table_section_head'>
+                Cloud Security Posture Management
+              </td>
+              <td class='q_table_section_head'>
+                Resource Counts
+              </td>
+              <td class='q_table_section_head'>
+                QLUs
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                Virtual Machines
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                8
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                Serverless Functions
+              </td>
+              <td class='q_table_row_data'>
+                100
+              </td>
+              <td class='q_table_row_data'>
+                8
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                SaaS User Accounts - O365
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                SaaS User Accounts - Salesforce
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                SaaS User Accounts - Google Workspace
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                SaaS User Accounts - Zoom
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                SaaS User Accounts - Dropbox
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                SaaS User Accounts - Slack
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+            </tr>
+            <tr class='q_table_section_head'>
+              <td class='q_table_section_head'>
+                Cloud Workload Protection
+              </td>
+              <td class='q_table_section_head'>
+                Resource Counts
+              </td>
+              <td class='q_table_section_head'>
+                QLUs
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                Virtual Machines with Cloud Agents
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                Virtual Machines with FlexScan
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                4
+              </td>
+            </tr>
+            <tr class='q_table_section_head'>
+              <td class='q_table_section_head'>
+                Cloud Detection and Response
+              </td>
+              <td class='q_table_section_head'>
+                Resource Counts
+              </td>
+              <td class='q_table_section_head'>
+                QLUs
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                CDR Protected Virtual Machines
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                8
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                CDR Protected Serverless Functions
+              </td>
+              <td class='q_table_row_data'>
+                100
+              </td>
+              <td class='q_table_row_data'>
+                8
+              </td>
+            </tr>
+            <tr class='q_table_section_head'>
+              <td class='q_table_section_head'>
+                Container Security
+              </td>
+              <td class='q_table_section_head'>
+                Resource Counts
+              </td>
+              <td class='q_table_section_head'>
+                QLUs
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                Virtual Machines with Containers, including CI/CD Build Nodes
+              </td>
+              <td class='q_table_row_data'>
+                1
+              </td>
+              <td class='q_table_row_data'>
+                30
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                Container Images in Registries
+              </td>
+              <td class='q_table_row_data'>
+                100
+              </td>
+              <td class='q_table_row_data'>
+                8
+              </td>
+            </tr>
+            <tr>
+              <td class='q_table_row_data'>
+                Serverless Containers
+              </td>
+              <td class='q_table_row_data'>
+                15
+              </td>
+              <td class='q_table_row_data'>
+                30
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- version control information -->
+      <div class='row align-items-center gx-5'>
+        <div class='col col-2'>
+
+        </div>
+        <div class='col col-10 q_input_col q_version'>
+          <br><br>
+          Build Time: 2024-02-08 10:18:12 UTC, <a href='https://github.com/Qualys/mhahn_qlu_calculator/tree/bf3ed37c11755c06d3a128a68d03580bb10b8a1d'>Version id: bf3ed37
+        </div>
+      </div>
+
+
+    </div>
+
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'></script>
+
+<script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js' integrity='sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r' crossorigin='anonymous'></script>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js' integrity='sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+' crossorigin='anonymous'></script>
+
+    <script>
+      function qlu_sum() {
+          sum = 0
+          a = $('#qlu_cspm_vm').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cspm_func').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cspm_o365').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cspm_salesforce').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cspm_google_workspace').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cspm_zoom').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cspm_dropbox').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cspm_slack').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cwp_vmdr').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cwp_flex').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cdr_vm').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cdr_func').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cs_vm').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cs_reg').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          a = $('#qlu_cs_svrlss').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          sum = sum + Number(c);
+          d = (sum).toLocaleString()
+          $('#qlu_total').val(d);
+          curr = $('#curr_total').val();
+          e = curr.replace(/,/gi, '');
+          f = Number(e);
+          fwd = sum + f;
+          g = (fwd).toLocaleString()
+          $('#fwd_total').val(g);
+      }
+
+      $('#cspm_vm').on('change', function() {
+          a = $('#cspm_vm').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 8;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cspm_vm').val(e);
+          $('#cspm_vm').val(f);
+          qlu_sum();
+      } )
+      $('#cspm_func').on('change', function() {
+          a = $('#cspm_func').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/100) * 8;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cspm_func').val(e);
+          $('#cspm_func').val(f);
+          qlu_sum();
+      } )
+      $('#cspm_o365').on('change', function() {
+          a = $('#cspm_o365').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 1;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cspm_o365').val(e);
+          $('#cspm_o365').val(f);
+          qlu_sum();
+      } )
+      $('#cspm_salesforce').on('change', function() {
+          a = $('#cspm_salesforce').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 1;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cspm_salesforce').val(e);
+          $('#cspm_salesforce').val(f);
+          qlu_sum();
+      } )
+      $('#cspm_google_workspace').on('change', function() {
+          a = $('#cspm_google_workspace').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 1;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cspm_google_workspace').val(e);
+          $('#cspm_google_workspace').val(f);
+          qlu_sum();
+      } )
+      $('#cspm_zoom').on('change', function() {
+          a = $('#cspm_zoom').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 1;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cspm_zoom').val(e);
+          $('#cspm_zoom').val(f);
+          qlu_sum();
+      } )
+      $('#cspm_dropbox').on('change', function() {
+          a = $('#cspm_dropbox').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 1;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cspm_dropbox').val(e);
+          $('#cspm_dropbox').val(f);
+          qlu_sum();
+      } )
+      $('#cspm_slack').on('change', function() {
+          a = $('#cspm_slack').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 1;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cspm_slack').val(e);
+          $('#cspm_slack').val(f);
+          qlu_sum();
+      } )
+      $('#cwp_vmdr').on('change', function() {
+          a = $('#cwp_vmdr').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 1;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cwp_vmdr').val(e);
+          $('#cwp_vmdr').val(f);
+          qlu_sum();
+      } )
+      $('#cwp_flex').on('change', function() {
+          a = $('#cwp_flex').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 4;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cwp_flex').val(e);
+          $('#cwp_flex').val(f);
+          qlu_sum();
+      } )
+      $('#cdr_vm').on('change', function() {
+          a = $('#cdr_vm').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 8;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cdr_vm').val(e);
+          $('#cdr_vm').val(f);
+          qlu_sum();
+      } )
+      $('#cdr_func').on('change', function() {
+          a = $('#cdr_func').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/100) * 8;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cdr_func').val(e);
+          $('#cdr_func').val(f);
+          qlu_sum();
+      } )
+      $('#cs_vm').on('change', function() {
+          a = $('#cs_vm').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/1) * 30;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cs_vm').val(e);
+          $('#cs_vm').val(f);
+          qlu_sum();
+      } )
+      $('#cs_reg').on('change', function() {
+          a = $('#cs_reg').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/100) * 8;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cs_reg').val(e);
+          $('#cs_reg').val(f);
+          qlu_sum();
+      } )
+      $('#cs_svrlss').on('change', function() {
+          a = $('#cs_svrlss').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = Math.ceil(c/15) * 30;
+          e = (d).toLocaleString()
+          f = (c).toLocaleString()
+          $('#qlu_cs_svrlss').val(e);
+          $('#cs_svrlss').val(f);
+          qlu_sum();
+      } )
+      $('#curr_total').on('change', function() {
+          a = $('#curr_total').val();
+          b = a.replace(/,/gi, '');
+          c = Number(b);
+          d = (c).toLocaleString()
+          $('#curr_total').val(d);
+          qlu_sum();
+      } )
+    </script>
+  </body>
+</html>
