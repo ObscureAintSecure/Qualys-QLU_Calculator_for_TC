@@ -4,4 +4,4 @@ This calculator is designed to help estimate the Qualys License Units (QLUs) req
 
 Calculator is here: [https://obscureaintsecure.github.io/Qualys-QLU_Calculator_for_TC/Qualys_QLU_Calculator.html](https://obscureaintsecure.github.io/Qualys-QLU_Calculator_for_TC/Qualys_QLU_Calculator.html)
 
-The official Qualys QLU Calculator: [https://www.qualys.com/qlu-pricing/](https://www.qualys.com/qlu-pricing/) or here [https://qualys-qlu-calculator.online/](https://qualys-qlu-calculator.online/)
+The official Qualys QLU Calculator: [https://www.qualys.com/qlu-pricing/](https://www.qualys.com/qlu-pricing/)
